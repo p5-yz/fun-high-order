@@ -100,7 +100,7 @@ describe("Higher Order Functions", () => {
 	//    })
 	//  })
 
-	describe("Unary Functions", () => {
+	xdescribe("Unary Functions", () => {
 		describe("twice", () => {
 			it("returns a function on first invocation", () => {
 				const double = hof.twice(hof.add);
@@ -176,7 +176,7 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	describe("Generator Functions", () => {
+	xdescribe("Generator Functions", () => {
 		describe("from", () => {
 			it("returns a function on first invocation", () => {
 				const index = hof.from();
@@ -382,7 +382,7 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	describe("gensym Functions", () => {
+	xdescribe("gensym Functions", () => {
 		describe("genSymF", () => {
 			it("returns a function on first invocation", () => {
 				expect(typeof hof.genSymF("A")).toBe("function");
@@ -424,7 +424,7 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	describe("Object Methods", () => {
+	xdescribe("Object Methods", () => {
 		describe("counter", () => {
 			it("returns an object", () => {
 				const obj = hof.counter(10);
@@ -487,7 +487,7 @@ describe("Higher Order Functions", () => {
 	});
 });
 
-describe("Advanced Functionality", () => {
+xdescribe("Advanced Functionality", () => {
 	describe("curry", () => {
 		it("works for any number of arguments", () => {
 			const multiply5Numbers = (a, b, c, d, e) => a * b * c * d * e;

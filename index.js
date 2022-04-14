@@ -1,18 +1,41 @@
 const hof = {};
 
-hof.identity = function () {};
+hof.identity = function (x) {
+    return x;
+};
 
-hof.identityF = function () {};
+hof.identityF = function (x) {
+        const innerFunc = () => x;
+    return innerFunc;
+};
 
-hof.add = function () {};
+hof.add = function (x, y) {
+    return x + y;
+};
 
-hof.subtract = function () {};
+hof.subtract = function (x, y) {
+    return x - y;
+};
 
-hof.multiply = function () {};
+hof.multiply = function (x, y) {
+    return x * y;
+};
 
-hof.increment = function () {};
+hof.increment = function (x) {
 
-hof.addF = function () {};
+    return this.add(x, 1);
+};
+//how can we do this one without using 'this'
+
+
+hof.addF = function (x) {
+
+    function innerFunc(y) {
+        return x + y;
+    };
+
+    return innerFunc;
+};
 
 hof.curry = function () {};
 
