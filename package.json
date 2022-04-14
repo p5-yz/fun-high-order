@@ -9,7 +9,7 @@
   "author": "Mauro Gestoso <mauro@northcoders.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest"
   },
   "devDependencies": {
     "jest": "^26.4.2"

@@ -23,7 +23,7 @@ hof.multiply = function (x, y) {
 
 hof.increment = function (x) {
 
-    return this.add(x, 1);
+    return hof.add(x, 1);
 };
 //how can we do this one without using 'this'
 
@@ -37,11 +37,38 @@ hof.addF = function (x) {
     return innerFunc;
 };
 
-hof.curry = function () {};
 
-hof.liftF = function () {};
+hof.curry = function ( func, num  ) {
 
-hof.twice = function () {};
+    function innerFunc(x) {
+       return func( num , x)
+    }; 
+     
+    return innerFunc;
+
+};
+
+hof.liftF = function ( func ) {
+
+    function innerFunc( x ) {
+        function innerInnerFunc( y ){
+            return func(x , y)
+        }
+
+        return innerInnerFunc;
+    }
+    return innerFunc;
+};
+
+
+hof.twice = function ( binaryFunc ) {
+
+    function innerFunc( x ) {
+        return binaryFunc( x, x )
+    }
+
+    return innerFunc;
+};
 
 hof.composeU = function () {};
 

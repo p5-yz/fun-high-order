@@ -68,7 +68,7 @@ describe("Higher Order Functions", () => {
 				const add100 = hof.addF(100);
 				expect(add100(5)).toBe(105);
 				expect(add100(100)).toBe(200);
-				expect(add100(-100)).toBe(0);
+				expect (add100(-100)).toBe(0);
 			});
 		});
 		describe("curry", () => {
@@ -78,6 +78,8 @@ describe("Higher Order Functions", () => {
 			it("second invocation will return the result", () => {
 				const timesByThirty = hof.curry(hof.multiply, 30);
 				expect(timesByThirty(6)).toBe(hof.multiply(30, 6));
+				const addThirty = hof.curry(hof.add, 30);
+				expect(addThirty(6)).toBe(hof.add(30, 6));
 			});
 		});
 		describe("liftF", () => {
@@ -85,7 +87,7 @@ describe("Higher Order Functions", () => {
 				expect(typeof hof.liftF(hof.add)).toBe("function");
 			});
 			it("returns a function on second invocation", () => {
-				expect(typeof hof.liftF(hof.add)(1)).toBe("function");
+				expect(typeof hof.liftF(hof.add)()).toBe("function");
 			});
 			it("returns the result on third invocation (so that the binary function is callable with two invocations)", () => {
 				expect(hof.liftF(hof.add)(1)(6)).toBe(hof.add(1, 6));
@@ -100,7 +102,7 @@ describe("Higher Order Functions", () => {
 	//    })
 	//  })
 
-	xdescribe("Unary Functions", () => {
+	describe("Unary Functions", () => {
 		describe("twice", () => {
 			it("returns a function on first invocation", () => {
 				const double = hof.twice(hof.add);
@@ -111,7 +113,7 @@ describe("Higher Order Functions", () => {
 				expect(double(3)).toBe(hof.add(3, 3));
 			});
 		});
-		describe("composeU", () => {
+		xdescribe("composeU", () => {
 			it("returns a function on first invocation", () => {
 				const add100 = (x) => x + 100;
 				const add50 = (x) => x + 50;
@@ -127,7 +129,7 @@ describe("Higher Order Functions", () => {
 				expect(doubleThenSquare(5)).toBe(100);
 			});
 		});
-		describe("composeB", () => {
+		xdescribe("composeB", () => {
 			it("returns a function on first invocation", () => {
 				const add2NumsMultiplyBy3rd = hof.composeB(
 					hof.add,
@@ -145,7 +147,7 @@ describe("Higher Order Functions", () => {
 				);
 			});
 		});
-		describe("limit", () => {
+		xdescribe("limit", () => {
 			it("returns a function on first invocation", () => {
 				const addUseOnceOnly = hof.limit(hof.add, 1);
 				expect(typeof addUseOnceOnly).toBe("function");
