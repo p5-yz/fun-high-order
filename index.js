@@ -70,6 +70,43 @@ hof.twice = function ( binaryFunc ) {
     return innerFunc;
 };
 
+hof.once = function (func) {
+
+    let firstResult = func();
+    let counterB = 0;
+
+    function innerFunc() {
+        counterB ++;
+        if (counterB > 1) {
+            return firstResult;
+        } else {
+            return func();
+        }
+        
+        // return func();
+
+    };
+    
+    return innerFunc;
+};
+///////////////////////////////////
+
+// hof.doNTimes = function (func, n) {
+
+//     let counterB = 0;
+//     function innerFunc() {
+//         counterB ++;
+//         if (counterB > n) {
+//             return null;
+//         } else {
+//             return func();
+//         };
+//     };
+//     return innerFunc;
+// }
+
+
+//////////////////////////////////////
 hof.composeU = function () {};
 
 hof.composeB = function () {};

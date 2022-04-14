@@ -96,11 +96,44 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	//  describe('once', () => {
-	//    it('Add your first test here...', () => {
-	//      // Write your own tests for once
-	//    })
-	//  })
+	 describe('once', () => {
+	   it('returns a function on first invocation', () => {
+	    expect(typeof hof.once(hof.add)).toBe('function');
+	   });
+	   
+	   
+	   it('invokes returned function only once, when it is invoked twice', () => {
+		//arrange
+		let counter = 0;   
+		const increaseCounterByOne = () => counter ++;
+		const increaseToOne = hof.once(increaseCounterByOne);
+		//act
+		increaseToOne()
+		increaseToOne()
+		//assert
+		expect(counter).toBe(1);
+	   });
+
+	   it('return value of every invocation (of our returned function) is the same as the first invocation', () => {
+		   //arrange
+		let counter = 0;   
+
+		function increaseCounterByOne() {
+			counter++;
+			return counter;
+			//return counter++
+		};
+
+		const increaseToOne = hof.once(increaseCounterByOne);
+		//act
+		const result1 = increaseToOne(); //expecting return of 1
+		increaseToOne()
+		const result2 = increaseToOne();  //
+
+		//assert
+		expect(result1).toBe(result2);
+	   });
+	 });
 
 	describe("Unary Functions", () => {
 		describe("twice", () => {
