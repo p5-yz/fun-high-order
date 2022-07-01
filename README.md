@@ -267,7 +267,7 @@ add.invoke(5, 7); // undefined
 ## Even More difficult tasks
 
 26. Implement `curry` so that it works with any number of arguments. `.call`
-    and `.apply` are your friends here. You'll also need to use the `arguments` key variable.
+    and `.apply` are your friends here. Also take a look at the `arguments` keyword or using the `spread operator` with `rest parameters`
 
 ```js
 function multiply5(a, b, c, d, e) {
