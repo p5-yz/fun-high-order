@@ -101,7 +101,7 @@ describe("Higher Order Functions", () => {
 	    expect(typeof hof.once(hof.add)).toBe('function');
 	   });
 	   
-	   
+
 	   it('invokes returned function only once, when it is invoked twice', () => {
 		//arrange
 		let counter = 0;   
@@ -146,7 +146,7 @@ describe("Higher Order Functions", () => {
 				expect(double(3)).toBe(hof.add(3, 3));
 			});
 		});
-		xdescribe("composeU", () => {
+		describe("composeU", () => {
 			it("returns a function on first invocation", () => {
 				const add100 = (x) => x + 100;
 				const add50 = (x) => x + 50;
@@ -162,7 +162,7 @@ describe("Higher Order Functions", () => {
 				expect(doubleThenSquare(5)).toBe(100);
 			});
 		});
-		xdescribe("composeB", () => {
+		describe("composeB", () => {
 			it("returns a function on first invocation", () => {
 				const add2NumsMultiplyBy3rd = hof.composeB(
 					hof.add,
@@ -180,7 +180,7 @@ describe("Higher Order Functions", () => {
 				);
 			});
 		});
-		xdescribe("limit", () => {
+		describe("limit", () => {
 			it("returns a function on first invocation", () => {
 				const addUseOnceOnly = hof.limit(hof.add, 1);
 				expect(typeof addUseOnceOnly).toBe("function");
@@ -211,7 +211,7 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	xdescribe("Generator Functions", () => {
+	describe("Generator Functions", () => {
 		describe("from", () => {
 			it("returns a function on first invocation", () => {
 				const index = hof.from();
@@ -417,7 +417,7 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	xdescribe("gensym Functions", () => {
+	describe("gensym Functions", () => {
 		describe("genSymF", () => {
 			it("returns a function on first invocation", () => {
 				expect(typeof hof.genSymF("A")).toBe("function");
@@ -459,7 +459,7 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	xdescribe("Object Methods", () => {
+	describe("Object Methods", () => {
 		describe("counter", () => {
 			it("returns an object", () => {
 				const obj = hof.counter(10);
@@ -522,8 +522,8 @@ describe("Higher Order Functions", () => {
 	});
 });
 
-xdescribe("Advanced Functionality", () => {
-	describe("curry", () => {
+describe("Advanced Functionality", () => {
+	describe.only("curry", () => {
 		it("works for any number of arguments", () => {
 			const multiply5Numbers = (a, b, c, d, e) => a * b * c * d * e;
 			expect(hof.curry(multiply5Numbers, 1, 2)(3, 4, 5)).toBe(120);
