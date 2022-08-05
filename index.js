@@ -34,18 +34,11 @@ hof.addF = function (x) {
 };
 
 hof.curry = function (func, ...nums) {
-  function innerFunc(x) {
-    return func(num, x);
+  function innerFunc(...nums2) {
+    return func(...nums.concat(nums2));
   }
   return innerFunc;
 };
-
-// hof.curry = function (func, num) {
-//     function innerFunc(x) {
-//       return func(num, x);
-//     }
-//     return innerFunc;
-//   };
 
 hof.liftF = function (func) {
   function innerFunc(x) {
@@ -71,34 +64,23 @@ hof.once = function (func) {
 
   function innerFunc() {
     if (counterB === 0) {
+        counterB++;
       func();
     }
-    counterB++;
   }
 
   return innerFunc;
 };
-///////////////////////////////////
 
-// hof.doNTimes = function (func, n) {
-
-//     let counterB = 0;
-//     function innerFunc() {
-//         counterB ++;
-//         if (counterB > n) {
-//             return null;
-//         } else {
-//             return func();
-//         };
-//     };
-//     return innerFunc;
-// }
-
-//////////////////////////////////////
 hof.composeU = function (func1, func2) {
   const innerFunc = (x) => func2(func1(x));
   return innerFunc;
 };
+
+hof.composeU = function (func1, func2) {
+    const innerFunc = (x) => func2(func1(x));
+    return innerFunc;
+  };
 
 hof.composeB = function (func1, func2) {
   const innerFunc = (a, b, c) => {

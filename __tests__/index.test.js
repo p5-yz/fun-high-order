@@ -523,7 +523,7 @@ describe("Higher Order Functions", () => {
 });
 
 describe("Advanced Functionality", () => {
-	describe.only("curry", () => {
+	describe("curry", () => {
 		it("works for any number of arguments", () => {
 			const multiply5Numbers = (a, b, c, d, e) => a * b * c * d * e;
 			expect(hof.curry(multiply5Numbers, 1, 2)(3, 4, 5)).toBe(120);
@@ -531,7 +531,7 @@ describe("Advanced Functionality", () => {
 		});
 	});
 	describe("composeU", () => {
-		it("works for any number of arguments", () => {
+		it.only("works for any number of arguments", () => {
 			const square = (x) => x * x;
 			const double = (x) => x + x;
 			const doubleSquareDouble = hof.composeU(double, square, double);

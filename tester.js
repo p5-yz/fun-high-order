@@ -1,15 +1,5 @@
-function increment(x) {
-  
-    function innerFunc() {
-        x++;
-        return x;
-    }
-    return innerFunc;
-};
+const FUNK = (...funcs) => {
+    console.log(typeof funcs)
+}
 
-
-
-const newFunc = increment(2);
-//newFunc = () => {return 2 + 1};
-
-console.log(newFunc(newFunc()))
+FUNK(1, 2, 3, 4)
