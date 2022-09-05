@@ -68,7 +68,7 @@ describe("Higher Order Functions", () => {
 				const add100 = hof.addF(100);
 				expect(add100(5)).toBe(105);
 				expect(add100(100)).toBe(200);
-				expect (add100(-100)).toBe(0);
+				expect(add100(-100)).toBe(0);
 			});
 		});
 		describe("curry", () => {
@@ -78,8 +78,6 @@ describe("Higher Order Functions", () => {
 			it("second invocation will return the result", () => {
 				const timesByThirty = hof.curry(hof.multiply, 30);
 				expect(timesByThirty(6)).toBe(hof.multiply(30, 6));
-				const addThirty = hof.curry(hof.add, 30);
-				expect(addThirty(6)).toBe(hof.add(30, 6));
 			});
 		});
 		describe("liftF", () => {
@@ -87,7 +85,7 @@ describe("Higher Order Functions", () => {
 				expect(typeof hof.liftF(hof.add)).toBe("function");
 			});
 			it("returns a function on second invocation", () => {
-				expect(typeof hof.liftF(hof.add)()).toBe("function");
+				expect(typeof hof.liftF(hof.add)(1)).toBe("function");
 			});
 			it("returns the result on third invocation (so that the binary function is callable with two invocations)", () => {
 				expect(hof.liftF(hof.add)(1)(6)).toBe(hof.add(1, 6));
@@ -96,44 +94,11 @@ describe("Higher Order Functions", () => {
 		});
 	});
 
-	 describe('once', () => {
-	   it('returns a function on first invocation', () => {
-	    expect(typeof hof.once(hof.add)).toBe('function');
-	   });
-	   
-
-	   it('invokes returned function only once, when it is invoked twice', () => {
-		//arrange
-		let counter = 0;   
-		const increaseCounterByOne = () => counter ++;
-		const increaseToOne = hof.once(increaseCounterByOne);
-		//act
-		increaseToOne()
-		increaseToOne()
-		//assert
-		expect(counter).toBe(1);
-	   });
-
-	   it('return value of every invocation (of our returned function) is the same as the first invocation', () => {
-		   //arrange
-		let counter = 0;   
-
-		function increaseCounterByOne() {
-			counter++;
-			return counter;
-			//return counter++
-		};
-
-		const increaseToOne = hof.once(increaseCounterByOne);
-		//act
-		const result1 = increaseToOne(); //expecting return of 1
-		increaseToOne()
-		const result2 = increaseToOne();  //
-
-		//assert
-		expect(result1).toBe(result2);
-	   });
-	 });
+	//  describe('once', () => {
+	//    it('Add your first test here...', () => {
+	//      // Write your own tests for once
+	//    })
+	//  })
 
 	describe("Unary Functions", () => {
 		describe("twice", () => {
@@ -531,7 +496,7 @@ describe("Advanced Functionality", () => {
 		});
 	});
 	describe("composeU", () => {
-		it.only("works for any number of arguments", () => {
+		it("works for any number of arguments", () => {
 			const square = (x) => x * x;
 			const double = (x) => x + x;
 			const doubleSquareDouble = hof.composeU(double, square, double);
