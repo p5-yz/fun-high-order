@@ -1,53 +1,77 @@
-const hof = {};
+function identity() {}
 
-hof.identity = function () {};
+function identityF() {}
 
-hof.identityF = function () {};
+function add() {}
 
-hof.add = function () {};
+function subtract() {}
 
-hof.subtract = function () {};
+function multiply() {}
 
-hof.multiply = function () {};
+function increment() {}
 
-hof.increment = function () {};
+function addF() {}
 
-hof.addF = function () {};
+function curry() {}
 
-hof.curry = function () {};
+function liftF() {}
 
-hof.liftF = function () {};
+function twice() {}
 
-hof.twice = function () {};
+function composeU() {}
 
-hof.composeU = function () {};
+function composeB() {}
 
-hof.composeB = function () {};
+function limit() {}
 
-hof.limit = function () {};
+function from() {}
 
-hof.from = function () {};
+function to() {}
 
-hof.to = function () {};
+function fromTo() {}
 
-hof.fromTo = function () {};
+function element() {}
 
-hof.element = function () {};
+function collect() {}
 
-hof.collect = function () {};
+function filter() {}
 
-hof.filter = function () {};
+function concat() {}
 
-hof.concat = function () {};
+function fibonacciF() {}
 
-hof.fibonacciF = function () {};
+function genSymF() {}
 
-hof.genSymF = function () {};
+function genSymFF() {}
 
-hof.genSymFF = function () {};
+function counter() {}
 
-hof.counter = function () {};
+function revokable() {}
 
-hof.revokable = function () {};
-
-module.exports = hof;
+module.exports = {
+  identity,
+  identityF,
+  add,
+  subtract,
+  multiply,
+  increment,
+  addF,
+  curry,
+  liftF,
+  twice,
+  composeU,
+  composeB,
+  limit,
+  from,
+  to,
+  fromTo,
+  element,
+  collect,
+  filter,
+  concat,
+  fibonacciF,
+  genSymF,
+  genSymFF,
+  counter,
+  revokable,
+};
