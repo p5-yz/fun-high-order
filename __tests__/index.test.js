@@ -104,6 +104,9 @@ describe('Higher Order Functions', () => {
       it('second invocation will return the result', () => {
         const timesByThirty = curry(multiply, 30);
         expect(timesByThirty(6)).toBe(multiply(30, 6));
+
+        const addSeven = curry(add, 7);
+        expect(addSeven(11)).toBe(add(7, 11));
       });
     });
     describe('liftF', () => {
