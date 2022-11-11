@@ -491,14 +491,14 @@ describe('Higher Order Functions', () => {
         expect(typeof obj.revoke).toBe('function');
       });
       it('invoke will allow use of passed binary function', () => {
-        const add = revokable(add);
-        expect(add.invoke(3, 4)).toBe(add(3, 4));
+        const obj = revokable(add);
+        expect(obj.invoke(3, 4)).toBe(add(3, 4));
       });
       it('after revoke is called, passed function will return undefined in subsequent calls', () => {
-        const add = revokable(add);
-        expect(add.invoke(3, 4)).toBe(add(3, 4));
-        add.revoke();
-        expect(add.invoke(3, 4)).toBe(undefined);
+        const obj = revokable(add);
+        expect(obj.invoke(3, 4)).toBe(add(3, 4));
+        obj.revoke();
+        expect(obj.invoke(3, 4)).toBe(undefined);
       });
     });
   });
