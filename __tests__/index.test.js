@@ -182,17 +182,17 @@ describe("Higher Order Functions", () => {
         expect(useAddLiberally).toHaveBeenCalledTimes(6);
       });
       it("returns undefined when invoked more times than given limit", () => {
-        const useMinusScarcely = jest.fn(limit(add, 3));
-        expect(useMinusScarcely(3, 1)).toBe(2);
-        expect(useMinusScarcely).toHaveBeenCalledTimes(1);
-        expect(useMinusScarcely(8, 4)).toBe(4);
-        expect(useMinusScarcely).toHaveBeenCalledTimes(2);
-        expect(useMinusScarcely(15, 2)).toBe(13);
-        expect(useMinusScarcely).toHaveBeenCalledTimes(3);
-        expect(useMinusScarcely(10, 5)).toBe(undefined);
-        expect(useMinusScarcely).toHaveBeenCalledTimes(4);
-        expect(useMinusScarcely(11, 1)).toBe(undefined);
-        expect(useMinusScarcely).toHaveBeenCalledTimes(5);
+        const useSubtractScarcely = jest.fn(limit(subtract, 3));
+        expect(useSubtractScarcely(3, 1)).toBe(2);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(1);
+        expect(useSubtractScarcely(8, 4)).toBe(4);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(2);
+        expect(useSubtractScarcely(15, 2)).toBe(13);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(3);
+        expect(useSubtractScarcely(10, 5)).toBe(undefined);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(4);
+        expect(useSubtractScarcely(11, 1)).toBe(undefined);
+        expect(useSubtractScarcely).toHaveBeenCalledTimes(5);
       });
     });
   });
