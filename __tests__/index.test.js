@@ -29,27 +29,27 @@ const {
 describe('Higher Order Functions', () => {
   describe('Identity Functions', () => {
     describe('identity', () => {
-      it('returns the first value passed as an argument', () => {
+      it.only('returns the first value passed as an argument', () => {
         expect(identity(3)).toBe(3);
         expect(identity('winter')).toBe('winter');
         expect(identity(true)).toBe(true);
         expect(identity(null)).toBe(null);
         expect(identity()).toBe(undefined);
       });
-      it('returns the first reference as the one passed as an argument', () => {
+      it.only('returns the first reference as the one passed as an argument', () => {
         const arr = ['Crono', 'Frog', 'Robo'];
         expect(identity(arr)).toBe(arr);
       });
     });
     describe('identityF', () => {
-      it('returns a function', () => {
+      it.only('returns a function', () => {
         expect(typeof identityF()).toBe('function');
       });
-      it('returned function will return initial value', () => {
+      it.only('returned function will return initial value', () => {
         const sixtyFour = identityF(64);
         expect(sixtyFour()).toBe(64);
       });
-      it('returned function will return initial reference', () => {
+      it.only('returned function will return initial reference', () => {
         const teas = ['English Breakfast', 'Oolong', 'Jasmine'];
         const returnedTeas = identityF(teas);
         expect(returnedTeas()).toBe(teas);
@@ -59,18 +59,18 @@ describe('Higher Order Functions', () => {
 
   describe('Binary Operations', () => {
     describe('add', () => {
-      it('returns total of the two arguments', () => {
+      it.only('returns total of the two arguments', () => {
         expect(add(56, 5)).toBe(56 + 5);
         expect(add(91, -71)).toBe(91 + -71);
       });
     });
     describe('subtract', () => {
-      it('returns the difference of the second argument from the first', () => {
+      it.only('returns the difference of the second argument from the first', () => {
         expect(subtract(57, 10)).toBe(57 - 10);
       });
     });
     describe('multiply', () => {
-      it('returns the product of two arguments', () => {
+      it.only('returns the product of two arguments', () => {
         expect(multiply(5, 30)).toBe(5 * 30);
       });
     });
@@ -78,19 +78,19 @@ describe('Higher Order Functions', () => {
 
   describe('Functions with multiple invocations', () => {
     describe('increment', () => {
-      it('increments the passed argument by 1', () => {
+      it.only('increments the passed argument by 1', () => {
         expect(increment(0)).toBe(1);
         expect(increment(-3)).toBe(-2);
       });
     });
     describe('addF', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         expect(typeof addF(3)).toBe('function');
       });
-      it('returns the total of both invocations', () => {
+      it.only('returns the total of both invocations', () => {
         expect(addF(3)(4)).toBe(7);
       });
-      it('returned function is reusable', () => {
+      it.only('returned function is reusable', () => {
         const add100 = addF(100);
         expect(add100(5)).toBe(105);
         expect(add100(100)).toBe(200);
@@ -98,10 +98,10 @@ describe('Higher Order Functions', () => {
       });
     });
     describe('curry', () => {
-      it('will take a binary function and a single value as arguments and return a function', () => {
+      it.only('will take a binary function and a single value as arguments and return a function', () => {
         expect(typeof curry(add, 5)).toBe('function');
       });
-      it('second invocation will return the result', () => {
+      it.only('second invocation will return the result', () => {
         const timesByThirty = curry(multiply, 30);
         expect(timesByThirty(6)).toBe(multiply(30, 6));
 
@@ -110,13 +110,13 @@ describe('Higher Order Functions', () => {
       });
     });
     describe('liftF', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         expect(typeof liftF(add)).toBe('function');
       });
-      it('returns a function on second invocation', () => {
+      it.only('returns a function on second invocation', () => {
         expect(typeof liftF(add)(1)).toBe('function');
       });
-      it('returns the result on third invocation (so that the binary function is callable with two invocations)', () => {
+      it.only('returns the result on third invocation (so that the binary function is callable with two invocations)', () => {
         expect(liftF(add)(1)(6)).toBe(add(1, 6));
         expect(liftF(multiply)(5)(6)).toBe(multiply(5, 6));
       });

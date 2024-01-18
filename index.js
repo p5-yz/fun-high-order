@@ -1,20 +1,39 @@
-function identity() {}
+function identity(arg) {
+  return arg;
+}
 
-function identityF() {}
+function identityF(arg) {
+  return () => arg;
+}
 
-function add() {}
+function add(a, b) {
+  return a + b;
+}
 
-function subtract() {}
+function subtract(a,b) {
+  return a - b;
+}
 
-function multiply() {}
+function multiply(a,b) {
+  return a * b;
+}
 
-function increment() {}
+function increment(num) {
+  return num += 1;
+}
 
-function addF() {}
+function addF(num) {
+  return (secNum) => num + secNum;
+}
 
-function curry() {}
+function curry(func, arg2) {
+  return (arg1) => func(arg1, arg2);
 
-function liftF() {}
+}
+
+function liftF(func) {
+  return (arg1) => (arg2) => func(arg1, arg2);
+}
 
 function twice() {}
 
