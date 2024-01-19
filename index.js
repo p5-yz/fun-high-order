@@ -2,37 +2,34 @@ function identity(arg) {
   return arg;
 }
 
-function identityF(arg) {
-  return () => arg;
+function identityF() {
 }
 
-function add(a, b) {
-  return a + b;
+function add() {
+  
 }
 
-function subtract(a,b) {
-  return a - b;
+function subtract() {
+  
 }
 
-function multiply(a,b) {
-  return a * b;
+function multiply() {
 }
 
-function increment(num) {
-  return num += 1;
+function increment() {
 }
 
-function addF(num) {
-  return (secNum) => num + secNum;
-}
-
-function curry(func, arg2) {
-  return (arg1) => func(arg1, arg2);
+function addF() {
 
 }
 
-function liftF(func) {
-  return (arg1) => (arg2) => func(arg1, arg2);
+function curry() {
+  
+
+}
+
+function liftF() {
+  
 }
 
 function twice() {}
