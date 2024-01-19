@@ -143,16 +143,15 @@ describe('Higher Order Functions', () => {
 
        //assert
      })
-    //  it('don`t return the value of the function on the second invocation', () => {
-    //   // Write your own tests for once
-    //   //arrange
+     it('don`t return the value of the function on the second invocation', () => {
+      // Write your own tests for once
+      //arrange
 
-    //   //act
+      //act
 
-    //   //assert
-    // })
-     
-   })
+      //assert
+    })
+   }) // possible tests for once() function
 
   describe('Unary Functions', () => {
     describe('twice', () => {
