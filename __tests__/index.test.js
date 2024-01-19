@@ -123,11 +123,16 @@ describe('Higher Order Functions', () => {
     });
   });
 
-  //  describe('once', () => {
-  //    it('Add your first test here...', () => {
-  //      // Write your own tests for once
-  //    })
-  //  })
+   describe('once', () => {
+     it('', () => {
+       // Write your own tests for once
+       //arrange
+
+       //act
+       //assert
+     })
+     
+   })
 
   describe('Unary Functions', () => {
     describe('twice', () => {
