@@ -5,6 +5,7 @@ const {
   subtract,
   multiply,
   increment,
+  once,
   addF,
   curry,
   liftF,
@@ -124,13 +125,32 @@ describe('Higher Order Functions', () => {
   });
 
    describe('once', () => {
-     it('', () => {
+      it.only('return a function', () => {
+      // Write your own tests for once
+      //arrange
+      const funcInput = () => {}
+      
+      //act
+      const funcInvocation = once(funcInput) 
+      //assert
+      expect(typeof funcInvocation).toBe("function")
+      })
+     it('return the value of the function on the first invocation', () => {
        // Write your own tests for once
        //arrange
-
+       
        //act
+
        //assert
      })
+    //  it('don`t return the value of the function on the second invocation', () => {
+    //   // Write your own tests for once
+    //   //arrange
+
+    //   //act
+
+    //   //assert
+    // })
      
    })
 

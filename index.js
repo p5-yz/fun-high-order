@@ -36,25 +36,24 @@ function curry(fun, num) {
 function liftF(fun) {
   return (arg1) => (arg2) => fun(arg1, arg2) 
 }
+
 //restricted to invoking func once
 function once(func) {
-  //func should only be called once
-  let called = true;
-  let t;
-  if(called === true) {
-    called = false;
-     func(this, )
+  function before(n, func){
+    let result
+    return function(){
+      if (--n > 0) {
+        result = func()
+      }
+      if (n <= 1) {
+        func = undefined
+      }
+      return result
+    }
   }
+  return before (2, func)
 }
-let count = 0;
-function createApplication () {
-return count + 1;
-}
-var initialize = once(createApplication);
-initialize();
 
-console.log(initialize());
-console.log(initialize());
 function twice() {}
 
 function composeU() {}
@@ -94,6 +93,7 @@ module.exports = {
   subtract,
   multiply,
   increment,
+  once,
   addF,
   curry,
   liftF,
