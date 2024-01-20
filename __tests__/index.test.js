@@ -124,7 +124,9 @@ describe('Higher Order Functions', () => {
     });
   });
 
-   describe('once', () => {
+   
+  describe('Unary Functions', () => {
+    describe('once', () => {
       it.only('return a function', () => {
       // Write your own tests for once
       //arrange
@@ -138,10 +140,12 @@ describe('Higher Order Functions', () => {
      it('return the value of the function on the first invocation', () => {
        // Write your own tests for once
        //arrange
-       
+      
        //act
-
+     
        //assert
+       
+
      })
      it('don`t return the value of the function on the second invocation', () => {
       // Write your own tests for once
@@ -150,28 +154,28 @@ describe('Higher Order Functions', () => {
       //act
 
       //assert
+     
     })
    }) // possible tests for once() function
 
-  describe('Unary Functions', () => {
     describe('twice', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         const double = twice(add);
         expect(typeof double).toBe('function');
       });
-      it('returns the value on second invocation', () => {
+      it.only('returns the value on second invocation', () => {
         const double = twice(add);
         expect(double(3)).toBe(add(3, 3));
       });
     });
     describe('composeU', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         const add100 = (x) => x + 100;
         const add50 = (x) => x + 50;
         const add150 = composeU(add100, add50);
         expect(typeof add150).toBe('function');
       });
-      it('returns a value of given function on second invocation', () => {
+      it.only('returns a value of given function on second invocation', () => {
         const square = (x) => x * x;
         const double = (x) => x + x;
         const squareThenDouble = composeU(square, double);
@@ -181,11 +185,11 @@ describe('Higher Order Functions', () => {
       });
     });
     describe('composeB', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         const add2NumsMultiplyBy3rd = composeB(add, multiply);
         expect(typeof add2NumsMultiplyBy3rd).toBe('function');
       });
-      it('on second invocation, takes 3 values, using the first two for function #1 then using that returned value and the third parameter for function #2', () => {
+      it.only('on second invocation, takes 3 values, using the first two for function #1 then using that returned value and the third parameter for function #2', () => {
         const add2NumsMultiplyBy3rd = composeB(add, multiply);
         expect(add2NumsMultiplyBy3rd(2, 3, 7)).toBe(multiply(add(2, 3), 7));
       });

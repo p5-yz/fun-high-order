@@ -35,7 +35,25 @@ function curry(fun, num) {
 
 function liftF(fun) {
   return (arg1) => (arg2) => fun(arg1, arg2) 
+  //  (arg1) => fun(arg1, arg2)  // arrow form
+  //  function (arg1) {          // standard form
+  //   return fun(arg1, arg2)  
+  //  }
 }
+// /*
+//   const add = (a, b) => a + b;
+//   const addF = liftF(add);
+//   const add3 = addF(3);
+//   const result = add3(4);
+//   console.log(result); // 7
+// */
+// function liftF(fun) {
+//   return function (arg1){ // addF
+//     return function (arg2) {// add3
+//       return fun(arg1, arg2) // resuly
+//     } 
+//   }  
+// }
 
 //restricted to invoking func once
 function once(func) {
@@ -54,11 +72,47 @@ function once(func) {
   return before (2, func)
 }
 
-function twice() {}
 
-function composeU() {}
+function twice(func) {
+  return function (num){
+    return func(num, num)
+  }    
+}
 
-function composeB() {}
+// double(square(5)) ==> 50
+// square(double(5)) ==> 100
+
+function composeU(func1, func2) {
+  return function (x){
+      return func2(func1(x))
+  }    
+}
+
+/* 
+  Write a function composeB that takes two binary functions and 
+  returns a function that calls them both. The return value of 
+  the first function will get passed as the first argument to 
+  the second one.
+
+  multiply(add(2, 3), 7); // 35
+  composeB(add, multiply)(2, 3, 7); // 35
+
+  func1 = add, func2 = multiply
+
+  x = 2, y = 3, z = 7 
+
+  function composeB(add, multiply){
+    return function (x, y, z){
+        return multiply(add(x, y), z)
+    }
+}   
+
+*/
+function composeB(func1, func2){
+  return function (x, y, z){
+      return func2(func1(x, y), z)
+  }
+}    
 
 function limit() {}
 
