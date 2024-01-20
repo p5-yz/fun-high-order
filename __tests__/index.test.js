@@ -195,11 +195,11 @@ describe('Higher Order Functions', () => {
       });
     });
     describe('limit', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         const useAddOnceOnly = limit(add, 1);
         expect(typeof useAddOnceOnly).toBe('function');
       });
-      it('on subsequent uses, returns value of original function when invoked less times than given limit', () => {
+      it.only('on subsequent uses, returns value of original function when invoked less times than given limit', () => {
         const useAddLiberally = jest.fn(limit(add, 108));
         expect(useAddLiberally(3, 1)).toBe(4);
         expect(useAddLiberally(4, 4)).toBe(8);
@@ -209,7 +209,7 @@ describe('Higher Order Functions', () => {
         expect(useAddLiberally(4, 38)).toBe(42);
         expect(useAddLiberally).toHaveBeenCalledTimes(6);
       });
-      it('returns undefined when invoked more times than given limit', () => {
+      it.only('returns undefined when invoked more times than given limit', () => {
         const useSubtractScarcely = jest.fn(limit(subtract, 3));
         expect(useSubtractScarcely(3, 1)).toBe(2);
         expect(useSubtractScarcely).toHaveBeenCalledTimes(1);

@@ -114,7 +114,13 @@ function composeB(func1, func2){
   }
 }    
 
-function limit() {}
+function limit(func, num) {
+  return function (x, y){
+    if (--num >= 0){
+      return func(x ,y)
+    }
+  }
+}
 
 function from() {}
 
