@@ -122,10 +122,22 @@ function limit(func, num) {
   }
 }
 
-function from() {}
+function from(num) {
+  return function(){
+    return num++
+  }
+}
 
-function to() {}
-
+function to(genFunc, end) {
+  let count = genFunc() - 1
+  let endCount = end - count 
+  return function(){
+    if(--endCount > 0){
+      count++
+      return count
+    }
+  }
+}
 function fromTo() {}
 
 function element() {}

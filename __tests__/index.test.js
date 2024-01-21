@@ -227,15 +227,15 @@ describe('Higher Order Functions', () => {
 
   describe('Generator Functions', () => {
     describe('from', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         const index = from();
         expect(typeof index).toBe('function');
       });
-      it('returns given value on first call', () => {
+      it.only('returns given value on first call', () => {
         const index = from(0);
         expect(index()).toBe(0);
       });
-      it('Subsequent invocations emits consecutive integers', () => {
+      it.only('Subsequent invocations emits consecutive integers', () => {
         const index = from(0);
         expect(index()).toBe(0);
         expect(index()).toBe(1);
@@ -243,27 +243,27 @@ describe('Higher Order Functions', () => {
       });
     });
     describe('to', () => {
-      it('returns a function on first invocation', () => {
+      it.only('returns a function on first invocation', () => {
         const index = to(from(0), 5);
         expect(typeof index).toBe('function');
       });
-      it('returns given value on first call', () => {
+      it.only('returns given value on first call', () => {
         const index = to(from(0), 5);
         expect(index()).toBe(0);
       });
-      it('Subsequent invocations emits consecutive integers', () => {
+      it.only('Subsequent invocations emits consecutive integers', () => {
         const index = to(from(0), 2);
         expect(index()).toBe(0);
         expect(index()).toBe(1);
       });
-      it('exclusively emits undefined when surpassed limit (not inclusive)', () => {
+      it.only('exclusively emits undefined when surpassed limit (not inclusive)', () => {
         const index = to(from(0), 2);
         expect(index()).toBe(0);
         expect(index()).toBe(1);
         expect(index()).toBe(undefined);
         expect(index()).toBe(undefined);
       });
-      it('exclusively emits undefined when surpassed limit (not inclusive) when generator does not start at 0', () => {
+      it.only('exclusively emits undefined when surpassed limit (not inclusive) when generator does not start at 0', () => {
         const index = to(from(1), 3);
         expect(index()).toBe(1);
         expect(index()).toBe(2);
